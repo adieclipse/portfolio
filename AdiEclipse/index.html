@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adi.eclipse - Jasa Pembuatan Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variabel Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        :root {
+            --primary-blue: #1b203a;
+            --primary-orange: #f37021;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Tombol Umum */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-orange);
+            color: var(--text-light);
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #d85f19;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--text-light);
+            padding: 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            padding-left: 3px;   
+            padding-right: 10px;
+        }
+
+        .header-content {
+            width: 100%;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--primary-blue);
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-orange) 50%, var(--primary-blue) 50%);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+        }
+
+        nav {
+            margin-left: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 14px;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-orange);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* Background gradien sebagai pengganti gambar luar angkasa */
+            background: linear-gradient(135deg, #101424 0%, #1b203a 60%, #522212 100%);
+            color: var(--text-light);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero {
+            height:95vh;
+            position: relative;
+            padding: 80px 0;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            width: 100vw;   /* FULL layar */
+            height: 100%;
+            
+            background: url('mockup1.png') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        /* OVERLAY GELAP */
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 2;
+        }
+
+        /* KONTEN DI ATAS */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            margin-bottom: 25px;
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .price-tag {
+            background-color: var(--primary-orange);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%); /* Efek panah sedikit di kanan */
+        }
+
+        .hero-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .hero-features li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-features li::before {
+            content: "•";
+            color: var(--primary-orange);
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* --- PRICING SECTION --- */
+        .pricing {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+        }
+
+        .pricing-cards {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: -0px; /* Menarik kartu ke atas agar menumpuk di hero */
+            position: relative;
+            z-index: 10;
+        }
+
+        .card {
+            background: var(--text-light);
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            width: 30%;
+            overflow: hidden;
+            border: 3px solid #f76a19;
+        }
+
+        .card-header {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        .card-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-header .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-body ul {
+            list-style: none;
+        }
+
+        .card-body li {
+            margin-bottom: 15px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-body li::before {
+            content: "✓";
+            color: var(--primary-orange);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .card {
+            position: relative;
+        }
+
+        /* Badge Terlaris */
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: -27px;
+            background: var(--primary-orange);
+            color: #fff;
+            padding: 6px 40px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(40deg);
+            border-radius: 4px;
+        }
+
+        /* Optional: kasih efek beda ke paket bisnis */
+        .popular {
+            transform: scale(1.05);
+            border: 2px solid var(--primary-orange);
+        }
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .why-us {
+            padding: 60px 0;
+            background-color: var(--text-light);
+        }
+
+        .why-us-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .why-us-text {
+            flex: 1;
+        }
+
+        .why-us-text h2 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+
+        .why-us-text ul {
+            list-style: none;
+        }
+
+        .why-us-text li {
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .why-us-text li::before {
+            content: "✓";
+            color: var(--primary-orange);
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .why-us-image {
+            flex: 2;
+            text-align: right;
+        }
+
+        .why-us-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        /* --- PROSES --- */
+                .process {
+            padding: 70px 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        .process h2 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .step {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .circle {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-orange);
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            position: relative;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        /* PANAH ANTAR STEP */
+        .step:not(:last-child)::after {
+            content: "➜";
+            position: absolute;
+            right: -15px;
+            top: 25px;
+            font-size: 24px;
+            color: var(--primary-orange);
+        }
+
+        /* --- PORTFOLIO SECTION --- */
+        .portfolio {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .portfolio h2 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+        }
+
+        .portfolio-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .portfolio-item {
+            flex: 1;
+            background: #ddd; /* Warna fallback jika gambar tidak ada */
+            height: 200px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* OVERLAY */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        /* HOVER EFFECT */
+        .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+
+        /* BUTTON */
+        .overlay .btn {
+            background: var(--primary-orange);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        /* TESTIMONI */
+        .testimoni {
+            padding: 60px 20px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .testimoni h2 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+        }
+
+        .testi-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .testi-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .testi-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .testi-card p {
+            font-style: italic;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .testi-card h4 {
+            font-size: 14px;
+            color: var(--primary-orange);
+        }
+
+        .stars {
+            color: gold;
+            margin-bottom: 10px;
+        }
+
+        /* --- BOTTOM CTA / FOOTER --- */
+        .bottom-cta {
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        /* BACKGROUND FULL */
+        .bottom-cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;   /* PENTING */
+            height: 100%;
+            background: url('footer.png') center/cover no-repeat;
+            z-index: 1;
+        }
+
+        /* OVERLAY */
+        .bottom-cta::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+
+        /* TEXT DI ATAS */
+        .bottom-cta .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .bottom-cta .btn {
+            margin-top: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 13px;
+            color: #0e0d0d;
+        }
+
+        .wa-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            z-index: 999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+            transition: all 0.3s ease;
+        }
+
+        .wa-float img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1);
+        }
+
+        .wa-float {
+            animation: pulse 1.8s infinite;
+        }
+
+        .lang-dropdown select {
+            padding: 5px 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+        .process-steps {
+            flex-direction: column;
+            gap: 30px;
+        }
+    }
+
+        @media (max-width: 768px) {
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step:not(:last-child)::after {
+                content: "⬇";
+                position: static;
+                display: block;
+                margin: 10px 0;
+            }
+
+        }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(37,211,102,0.7);
+        }
+        70% {
+            box-shadow: 0 0 0 15px rgba(37,211,102,0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(37,211,102,0);
+        }
+    }
+
+        /* HAMBURGER */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+    /* MOBILE MENU */
+    @media (max-width: 768px) {
+
+        .menu-toggle {
+            display: block;
+        }
+
+        nav {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 100%;
+            background: #fff;
+            display: none;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        nav.active {
+            display: block;
+        }
+
+        .pricing-cards {
+            flex-direction: column !important;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 100% !important;
+            max-width: 320px;
+            border-radius: 12px;
+        }
+
+        .portfolio-grid {
+            flex-direction: column !important;
+            align-items: center;
+        }
+
+        .card-header .price {
+            font-size: 24px;
+        }
+
+        .portfolio-item {
+            width: 100%;
+            max-width: 320px;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .testi-grid {
+        flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .testi-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .testi-card {
+                width: 90%;
+            }
+        }
+                }
+                
+    </style>
+</head>
+<body>
+
+    <header>
+    <div class="header-content">
+
+        <a href="#" class="logo">
+            <img src="Logo.png" alt="Adi Eclipse Logo">
+        </a>
+
+        <!-- HAMBURGER -->
+        <div class="menu-toggle" id="menu-toggle">
+            ☰
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+        <!-- DROPDOWN BAHASA DI SINI -->
+        <li class="lang-dropdown">
+        <select onchange="changeLang(this.value)">
+            <option value="id">ID</option>
+            <option value="en">EN</option>
+        </select>
+        </li>
+                <li><a href="#home" data-id="Home" data-en="Home">Home</a></li>
+                <li><a href="#layanan" data-id="Layanan" data-en="Services">Layanan</a></li>
+                <li><a href="#portfolio" data-id="Portofolio" data-en="Portfolio">Portofolio</a></li>
+                <li><a href="#kontak" data-id="Kontak" data-en="Contact">Kontak</a></li>
+                <li><a href="https://wa.me/6281234567890" target="_blank" class="btn">
+                    <span data-id="Konsultasi" data-en="Consultation">
+                    Konsultasi
+                </span>
+            </a>
+            </li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>
+                    <span data-id="Kami Bantu Bisnis Anda" data-en="We Help Your Business">
+                        Kami Bantu bisnis Anda
+                    </span><br>
+                    <span data-id="Dapat Lebih Banyak Customer!" data-en="Get More Customers!">
+                        Dapat Lebih Banyak Customer!
+                    </span>
+                </h1>
+                <p>
+                    <span data-id="Website yang bukan hanya bagus, tapi juga meningkatkan penjualan." data-en=" a website that is not only good, but also increases sales">
+                    Website yang bukan hanya bagus, tapi juga meningkatkan penjualan.
+                </span>
+                </p>
+                <div class="price-tag">
+                    <span data-id="Mulai dari 1 Juta Rupiah" data-en="Starting from $70">
+                        Mulai dari 1 Juta Rupiah
+                    </span>
+                </div>
+                <ul class="hero-features">
+                    <li data-id="Desain Profesional" data-en="Professional Design">Desain Profesional</li>
+                    <li data-id="Mobile Friendly" data-en="Mobile Friendly">Mobile Friendly</li>
+                    <li data-id="Gratis Konsultasi" data-en="Free Consultation">Gratis Konsultasi</li>
+                </ul>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn">
+                <span data-id="Mulai Project Anda Hari Ini" data-en="Start Your Project Today">
+                    Mulai Project Anda Hari Ini
+                </span>
+            </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="pricing fade-up">
+        <div class="container pricing-cards">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Basic</h3>
+                    <div class="price">
+                    <span data-id="Rp 1.500.000" data-en="$70">
+                        Rp 1.000.000
+                    </span>
+                </div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li data-id="Landing Page" data-en="Landing Page">Landing Page</li>
+                        <li data-id="Mobile Friendly" data-en="Mobile Friendly">Mobile Friendly</li>
+                        <li data-id="Tombol WhatsApp" data-en="WhatsApp Button">Tombol WhatsApp</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card populer">
+                <div class="badge">
+                    <span data-id="TERLARIS" data-en="Best Seller">
+                        TERLARIS
+                    </span>
+                    </div>
+                <div class="card-header">
+                    <h3>Pro</h3>
+                    <div class="price">
+                    <span data-id="Rp 3.500.000" data-en="$200">
+                        Rp 3.500.000
+                    </span>
+                </div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li data-id="3-5 Halaman" data-en="3-5 Pages">3-5 Halaman</li>
+                        <li data-id="SEO Basic" data-en="Basic SEO">SEO Basic</li>
+                        <li data-id="Form Kontak" data-en="Contact Form">Form Kontak</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Premium</h3>
+                    <div class="price">
+                    <span data-id="Rp 7.000.000" data-en="$400">
+                        Rp 7.000.000
+                    </span>
+                </div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li data-id="Website Lengkap" data-en="Full Website">Website Lengkap</li>
+                        <li data-id="Admin Panel" data-en="Admin Dashboard">Admin Panel</li>
+                        <li data-id="Support 1 Bulan" data-en="1 Month Support">Support 1 Bulan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us fade-up">
+        <div class="container why-us-content">
+            <div class="why-us-text">
+                <h2 data-id="Kenapa Pilih Kami?" data-en="Why Choose Us?">
+                    Kenapa Pilih Kami?
+                </h2>
+                <ul>
+                    <li>
+                    <span data-id="Berpengalaman & Profesional"
+                        data-en="Experienced & Professional">
+                        Berpengalaman & Profesional
+                    </span>
+                    <li>
+                    <span data-id="Proses Cepat, Bisa Launch Kurang dari 7 Hari"
+                        data-en="Fast Process, Can Launch In Less Than 7 Days">
+                        Proses Cepat, Bisa Launch Kurang dari 7 Hari
+                    </span>
+                    <li>
+                    <span data-id="Revisi Sampai Anda Merasa Puas"
+                        data-en="Revise Until You Are Satisfied">
+                        Revisi Sampai Anda Merasa Puas
+                    </span>
+                </ul>
+            </div>
+            <div class="why-us-image">
+                <img src="mockup2.png" alt="Mockup Klien">
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+    <div class="container">
+        <h2> 
+        <span data-id="Proses Kerja Kami" data-en="Our Work Process">
+            Proses Kerja Kami</span>
+        </h2>
+
+        <div class="process-steps">
+
+            <div class="step">
+                <div class="circle">1</div>
+                <h3>
+                <span data-id="Konsultasi" data-en="Consultation">Konsultasi</span>
+                </h3>
+                <p>
+                <span data-id="Kami memahami kebutuhan bisnis Anda secara detail." data-en="We Understand Your Business Needs In Detail">
+                Kami memahami kebutuhan bisnis Anda secara detail.</span>
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="circle">2</div>
+                <h3>
+                <span data-id="Desain" data-en="Design">Desain</span>    
+                </h3>
+                <p>
+                <span data-id="Membuat tampilan website yang modern & sesuai brand." data-en="Create a Modern & Brand Appropriate Website Appearance">
+                Membuat tampilan website yang modern & sesuai brand.</span>    
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="circle">3</div>
+                <h3>Development</h3>
+                <p>
+                <span data-id="Proses coding website dengan performa optimal." data-en="Website Coding Process With Optimal Performance">
+                Proses coding website dengan performa optimal.</span>   
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="circle">4</div>
+                <h3>Launch</h3>
+                <p>
+                <span data-id="Website siap online & bisa langsung digunakan." data-en="Website Is Ready To Go Online & Ready To Use Immediately">
+                Website siap online & bisa langsung digunakan.</span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section id="portfolio" class="portfolio fade-up">
+                <div class="container">
+                    <h2 data-id="Contoh Hasil Kami" data-en="Our Work Portfolio">
+                        Contoh Hasil Kami
+                    </h2>
+                    <div class="portfolio-grid">
+
+            <div class="portfolio-item">
+                <img src="portfolio1.png" alt="Portofolio 1">
+                <div class="overlay">
+                    <a href="https://contohwebsite1.com" target="_blank" class="btn">Lihat Demo</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="portfolio2.png" alt="Portofolio 2">
+                <div class="overlay">
+                    <a href="Adi.eclipse/WebsiteCafe/index.html" target="_blank" class="btn">Lihat Demo</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="portfolio3.png" alt="Portofolio 3">
+                <div class="overlay">
+                    <a href="https://contohwebsite3.com" target="_blank" class="btn">Lihat Demo</a>
+                </div>
+            </div>
+            </div>
+
+            <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="portfolio4.png" alt="Portofolio 4">
+                <div class="overlay">
+                    <a href="https://contohwebsite4.com" target="_blank" class="btn">Lihat Demo</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="portfolio5.png" alt="Portofolio 5">
+                <div class="overlay">
+                    <a href="https://contohwebsite5.com" target="_blank" class="btn">Lihat Demo</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="portfolio6.png" alt="Portofolio 6">
+                <div class="overlay">
+                    <a href="https://contohwebsite6.com" target="_blank" class="btn">Lihat Demo</a>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section class="testimoni">
+    <div class="container">
+        <h2 data-id="Apa Kata Klien Kami?" data-en="What Our Clients Say?">
+            Apa Kata Klien Kami?
+        </h2>
+
+        <div class="testi-grid">
+
+            <!-- TESTI 1 -->
+            <div class="testi-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p data-id="Website saya jadi lebih profesional dan banyak pelanggan baru masuk!"
+                   data-en="My website looks more professional and brings in more customers!">
+                   "Website saya jadi lebih profesional dan banyak pelanggan baru masuk!"
+                </p>
+                <h4>Andi - UMKM Kuliner</h4>
+            </div>
+
+            <!-- TESTI 2 -->
+            <div class="testi-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p data-id="Pelayanan cepat, desain keren, sangat recommended!"
+                   data-en="Fast service, great design, highly recommended!">
+                   "Pelayanan cepat, desain keren, sangat recommended!"
+                </p>
+                <h4>Rina - Owner Fashion</h4>
+            </div>
+
+            <!-- TESTI 3 -->
+            <div class="testi-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p data-id="Dari tidak punya website, sekarang bisnis saya terlihat lebih terpercaya"
+                   data-en="From no website to a more trustworthy business presence">
+                   "Dari tidak punya website, sekarang bisnis saya terlihat lebih terpercaya"
+                </p>
+                <h4>Budi - Jasa Bangunan</h4>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section id="kontak" class="bottom-cta">
+        <div class="container">
+            <h2 data-id="Siap Tingkatkan Bisnis Anda dengan Website Profesional?"
+                data-en="Ready to Grow Your Business with a Professional Website?">
+                Siap Tingkatkan Bisnis Anda dengan Website Profesional?
+            </h2>
+            <a href="https://wa.me/6285817744499" target="_blank" class="btn">
+                <span data-id="Chat Sekarang & Mulai Hari Ini!" data-en="Chat Now & Get Started Today!">
+                    Chat Sekarang & Mulai Hari Ini!
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <div class="footer-bottom">
+        <p>© 2026 Adi Eclipse. All rights reserved.</p>
+    </div>
+
+        <a href="https://wa.me/6285817744499?text=Halo%20saya%20tertarik%20jasa%20website"
+            class="wa-float" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+        </a>
+
+    <script>
+    const toggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("nav-menu");
+
+    toggle.onclick = () => {
+        nav.classList.toggle("active");
+    };
+    
+    const faders = document.querySelectorAll(".fade-up");
+
+    window.addEventListener("scroll", () => {
+        faders.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if(top < window.innerHeight - 100){
+                el.classList.add("show");
+            }
+        });
+    });
+    
+    function changeLang(lang) {
+        const elements = document.querySelectorAll('[data-id]');
+        
+        elements.forEach(el => {
+            if (lang === 'en') {
+                if (el.getAttribute('data-en')) {
+                    el.textContent = el.getAttribute('data-en');
+                }
+            } else {
+                el.textContent = el.getAttribute('data-id');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

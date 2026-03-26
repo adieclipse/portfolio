@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Nusantara Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif
+}
+
+/* HEADER LEBIH PENDEK */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 50px; /* sebelumnya terlalu kecil */
+    background:#fff;
+    position:sticky;
+    top:0;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+header h2{
+    font-size:20px;
+    margin:0;
+}
+
+/* Navbar */
+nav a{
+    margin:0 10px; /* dirapatkan */
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    font-size:14px;
+}
+
+.btn{
+    background:#c49b63;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    padding:0 60px;
+    color:#fff;
+    position:relative
+}
+
+/* overlay lebih gelap biar teks jelas */
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,rgba(0,0,0,0.8),rgba(0,0,0,0.3));
+    top:0;
+    left:0
+}
+
+.hero-content{
+    position:relative;
+    max-width:600px;
+    z-index:2;
+}
+
+/* TEKS HERO DITERANGIN */
+.hero h1{
+    font-size:55px;
+    margin:0;
+    color:#ffffff;
+    text-shadow:0 6px 25px rgba(0,0,0,0.7);
+}
+
+.hero h1 span{
+    color:#c49b63
+}
+
+.hero p{
+    margin:20px 0;
+    color:#f1f1f1;
+    font-size:16px;
+}
+
+/* SECTION */
+.section{
+    padding:80px 50px;
+    text-align:center
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    width:300px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:0.3s
+}
+
+.card:hover{
+    transform:translateY(-10px)
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover
+}
+
+.card h3{
+    margin:15px
+}
+
+.card p{
+    padding:0 15px 20px;
+    color:#555
+}
+
+/* 🔥 FIX GALLERY BIAR RAPI */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.gallery img{
+    width:280px;
+    height:200px; /* dipaksa sama semua */
+    object-fit:cover; /* biar gak gepeng */
+    border-radius:12px;
+}
+
+/* TESTIMONI */
+.testimoni{
+    background:#f5f5f5
+}
+
+.testi-box{
+    max-width:600px;
+    margin:auto;
+    font-style:italic
+}
+
+/* CTA */
+.cta{
+    background:linear-gradient(135deg,#c49b63,#8b5e34);
+    color:#fff;
+    padding:60px;
+    text-align:center
+}
+
+/* FORM */
+form{
+    max-width:400px;
+    margin:auto
+}
+
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#3b2a20;
+    color:#fff
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero{
+    padding:20px
+}
+.hero h1{
+    font-size:32px
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Cafe Nusantara</h2>
+<nav>
+<a href="#">Home</a>
+<a href="#menu">Menu</a>
+<a href="#testi">Testimoni</a>
+<a href="#kontak" class="btn">Reservasi</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Ngopi Nyaman <br><span>Suasana Premium</span></h1>
+<p>Nikmati kopi terbaik dengan suasana cozy dan modern.</p>
+<a href="#kontak" class="btn">Reservasi Sekarang</a>
+</div>
+</section>
+
+<section class="section" id="menu">
+<h2>Menu Favorit</h2>
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+<h3>Kopi Susu</h3>
+<p>Rp 25.000</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+<h3>Cappuccino</h3>
+<p>Rp 30.000</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0">
+<h3>Croissant</h3>
+<p>Rp 20.000</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+<img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0">
+</div>
+</section>
+
+<section class="section testimoni" id="testi">
+<h2>Apa Kata Pelanggan?</h2>
+<div class="testi-box">
+"Tempatnya nyaman banget, kopinya enak, pasti balik lagi!"
+</div>
+</section>
+
+<section class="section" id="kontak">
+<h2>Reservasi Sekarang</h2>
+<form onsubmit="sendWA(event)">
+<input type="text" id="nama" placeholder="Nama" required>
+<input type="text" id="waktu" placeholder="Waktu Reservasi" required>
+<textarea id="pesan" placeholder="Jumlah Orang"></textarea>
+<button class="btn" type="submit">Kirim ke WhatsApp</button>
+</form>
+</section>
+
+<section class="cta">
+<h2>Siap Nongkrong Nyaman?</h2>
+<a href="#kontak" class="btn">Booking Sekarang</a>
+</section>
+
+<footer>
+<p>© 2026 Cafe Nusantara</p>
+</footer>
+
+<script>
+function sendWA(e){
+e.preventDefault();
+let nama=document.getElementById('nama').value;
+let waktu=document.getElementById('waktu').value;
+let pesan=document.getElementById('pesan').value;
+
+let url=`https://wa.me/62XXXXXXXXXX?text=Halo,%20Saya%20${nama}%20ingin%20reservasi%20pada%20${waktu}.%20Jumlah:%20${pesan}`;
+window.open(url,'_blank');
+}
+</script>
+
+</body>
+</html>
